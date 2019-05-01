@@ -3,8 +3,14 @@
 import math
 
 def recipe_batches(recipe, ingredients):
-  pass 
-
+  evaluated_ri = {k: ingredients[k]//recipe[k] for k in recipe.keys() & ingredients}
+  eval_values = evaluated_ri.values()
+  sorted_values = sorted(eval_values)
+  if sorted_values[0] > 0:
+    return sorted_values[0]
+  else:
+    print("Not Enough Ingredients")
+  pass
 
 if __name__ == '__main__':
   # Change the entries of these dictionaries to test 
