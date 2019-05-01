@@ -3,7 +3,18 @@
 import argparse
 
 def find_max_profit(prices):
-  pass
+  sorted_prices = sorted(prices)
+  highest = sorted_prices[-1]
+  count = 0
+  def find_low(l):
+    if prices.index(highest) > prices.index(l):
+      lowest = l
+      return highest - lowest
+    if prices.index(highest) < prices.index(l):
+      nonlocal count
+      count = count + 1
+      return find_low(sorted_prices[count])
+  return find_low(sorted_prices[0])
 
 
 if __name__ == '__main__':
