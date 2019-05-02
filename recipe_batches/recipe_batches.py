@@ -3,8 +3,14 @@
 import math
 
 def recipe_batches(recipe, ingredients):
-  pass 
-
+    comparison = []
+    if (recipe.keys() == ingredients.keys()):
+        for key in ingredients.keys():
+            comparison.append((ingredients[key]//recipe[key]))
+        else:
+            return min(comparison)
+    else:
+        return 0
 
 if __name__ == '__main__':
   # Change the entries of these dictionaries to test 

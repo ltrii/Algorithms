@@ -3,7 +3,18 @@
 import sys
 
 def rock_paper_scissors(n):
-  pass 
+  if n == 0:
+    return [[]]
+  plays = [['rock'], ['paper'], ['scissors']]
+  if n == 1:
+    return plays
+
+  rounds = []
+  rps = rock_paper_scissors(n - 1)
+  for i in plays:
+    for j in rps:
+      rounds.append(i + j)
+  return rounds
 
 
 if __name__ == "__main__":
